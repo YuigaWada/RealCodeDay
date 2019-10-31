@@ -1,8 +1,8 @@
+<h2 align="center"> FuckCodeDay </h2>
+
 <p align="center">
 <img src="./resources/source.png" width=50% align="center">
 </p>
-
-<h2 align="center"> FuckCodeDay </h2>
 
 <br><br>
 

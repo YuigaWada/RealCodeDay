@@ -1,0 +1,21 @@
+{
+  "name": "FuckCodeDay",
+  "description": "海外サイトをただ翻訳しただけの害悪なサイトCodeDayのページから一瞬で翻訳元に飛べる拡張。 by Yuiga Wada",
+  "version": "0.1",
+  "manifest_version": 2,
+  "content_scripts": [{
+    "matches": ["*://*.codeday.me/*"],
+    "js": ["jquery-2.2.0.min.js", "ChEx.js", "content_script.js"]
+  }],
+  "options_page": "options.html",
+  "permissions": [
+    "*://*.codeday.me/*",
+    "storage",
+    "tabs"
+  ],
+  "icons": {
+    "16": "./icons/16.png",
+    "48": "./icons/48.png",
+    "128": "./icons/128.png"
+  }
+}

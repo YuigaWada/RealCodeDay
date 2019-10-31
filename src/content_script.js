@@ -1,19 +1,20 @@
-const session = sessionStorage.getItem('visitedCodeDay')
+const session = sessionStorage.getItem('visitedCodeDayUrl')
 
 const selector = '#submitForm > div > div.col-xs-12.col-md-4.side-right > div:nth-child(4) > div.panel-body > span > a'
 const editPageTemplate = 'https://publish.codeday.me/post/publist?site=jp&id='
 
-var hasLoaded = false
 
 window.onload = function() { // ** MAIN ** //
   console.log('FuckCodeDay is loaded correctly.')
+  var shapedUrl = removeQuery(window.location)
 
-  var fromCodeDay = session == 'yes'
-  sessionStorage.setItem('visitedCodeDay', fromCodeDay ? 'no' : 'yes');
+  var hasVisited = session == shapedUrl
 
-  if(fromCodeDay) {
-    sessionStorage.removeItem('visitedCodeDay');
+  if (hasVisited) {
+    sessionStorage.removeItem('visitedCodeDayUrl')
     return
+  } else {
+    sessionStorage.setItem('visitedCodeDayUrl', shapedUrl)
   }
 
 
@@ -21,7 +22,6 @@ window.onload = function() { // ** MAIN ** //
 
   var isEditingPage = window.location.origin == 'https://publish.codeday.me'
   if (!isEditingPage) { // Assumes that this page is like https://codeday.me/jp/qa/〜
-    var shapedUrl = removeQuery(window.location)
     var postId = getPostId(shapedUrl)
 
     var ediPageUrl = editPageTemplate + postId
@@ -36,12 +36,12 @@ window.onload = function() { // ** MAIN ** //
         },
         //false
         function() {
-          alert("FuckCodeDay: Failed to get target url.");
-        });
+          alert("FuckCodeDay: Failed to get target url.")
+        })
   } else {
     jump2Target(document.querySelector(selector))
   }
-};
+}
 
 
 function removeQuery(urlInfo) {
@@ -51,9 +51,9 @@ function removeQuery(urlInfo) {
 }
 
 function getPostId(url) {
-  var matchResult = url.match(/[0-9]+\.html/);
+  var matchResult = url.match(/[0-9]+\.html/)
 
-  return matchResult.length != 0 ? matchResult[0].slice(0, -5) : null;
+  return matchResult.length != 0 ? matchResult[0].slice(0, -5) : null
 }
 
 function simulateQuerySelector(raw_html, selector) { // ** HACK ** //
@@ -65,7 +65,7 @@ function simulateQuerySelector(raw_html, selector) { // ** HACK ** //
 
   var result = document.querySelector(selector)
 
-  document.body.removeChild(div);
+  document.body.removeChild(div)
 
   return result
 }

@@ -7,7 +7,6 @@
     "matches": ["*://*.codeday.me/*"],
     "js": ["jquery-2.2.0.min.js", "ChEx.js", "content_script.js"]
   }],
-  "options_page": "options.html",
   "permissions": [
     "*://*.codeday.me/*",
     "storage",

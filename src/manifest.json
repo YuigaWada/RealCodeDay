@@ -1,15 +1,14 @@
 {
   "name": "FuckCodeDay",
   "description": "海外サイトをただ翻訳しただけの害悪なサイト\"コードログ(CodeDay)\"のページから一瞬で翻訳元に飛べる拡張。 by Yuiga Wada",
-  "version": "0.3",
+  "version": "1.0",
   "manifest_version": 2,
   "content_scripts": [{
     "matches": ["*://*.codeday.me/*"],
-    "js": ["jquery-2.2.0.min.js", "ChEx.js", "content_script.js"]
+    "js": ["jquery-2.2.0.min.js", "ChEx.js", "main.js"]
   }],
   "permissions": [
-    "*://*.codeday.me/*",
-    "tabs"
+    "*://*.codeday.me/*"
   ],
   "icons": {
     "16": "./icons/16.png",
